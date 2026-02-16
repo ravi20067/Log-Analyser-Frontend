@@ -21,7 +21,14 @@ const Login = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const { login, isAuthenticated } = useAuth();
 
-  
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/home");
+    }
+  }, [isAuthenticated, navigate]);
+
+
+
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
